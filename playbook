@@ -3,7 +3,7 @@
   connection: local
   gather_facts: false
   tasks:
-      - name: create a security group in us-east-2
+      - name: create a security group
         ec2_group:
           name: sed_security_group
           description: an ec2 group
@@ -23,14 +23,14 @@
 
       - name: create ec2 instance
         ec2:
-          key_name: ubuntu_test
+          key_name: macos_test
           region: us-east-2
           aws_access_key: "XXXXXXXXXXXXXXXXXXX"
           aws_secret_key: "XXXXXXXXXXXXXXXXXXXXXXXSodZsep"
           image: ami-04768381bf606e2b3
           instance_type: t2.micro
           wait: yes
-          group: sed_security_group
+          group: test_1_group
           count_tag:
             Name: apacheserver
           exact_count: 1
